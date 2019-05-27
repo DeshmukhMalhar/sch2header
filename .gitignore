@@ -24,8 +24,11 @@ _autosave-*
 *.xml
 *.csv
 
-# Reinclude *.ne as we require it to generate the pin mapping
+# Reinclude *.net as we require it to generate the pin mapping
 !*.net
+# Reinclude *.xml as we require it to generate the pin mapping
+!*.xml
+
 how_to_parse_the_kicad_netlist.pdf
 .code-workspace.code-workspace
 .vscode/settings.json
