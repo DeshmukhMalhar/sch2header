@@ -32,3 +32,6 @@ _autosave-*
 how_to_parse_the_kicad_netlist.pdf
 .code-workspace.code-workspace
 .vscode/settings.json
+
+*-cache.lib
+comments_scratch.txt
