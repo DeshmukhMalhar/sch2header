@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>C:\Users\malha\OneDrive\Documents\GitHub\sch2header\kicad-project\test_project_with_uC\test_project_with_uC.sch</source>
-    <date>5/29/2019 10:56:39 AM</date>
+    <date>5/29/2019 6:40:48 PM</date>
     <tool>Eeschema (5.1.0)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -35,8 +35,61 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CEE678D</tstamp>
     </comp>
+    <comp ref="U2">
+      <value>ATmega328-MU</value>
+      <footprint>Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf</datasheet>
+      <libsource lib="MCU_Microchip_ATmega" part="ATmega328-MU" description="20MHz, 32kB Flash, 2kB SRAM, 1kB EEPROM, QFN-32"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CEEC004</tstamp>
+    </comp>
+    <comp ref="Y2">
+      <value>16M</value>
+      <footprint>Crystal:Crystal_SMD_0603-4Pin_6.0x3.5mm</footprint>
+      <datasheet>~</datasheet>
+      <libsource lib="Device" part="Crystal_Small" description="Two pin crystal, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CEF26EA</tstamp>
+    </comp>
+    <comp ref="SW1">
+      <value>SW_DIP_x04</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Switch" part="SW_DIP_x04" description="4x DIP Switch, Single Pole Single Throw (SPST) switch, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CEF6224</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>IRF540N</value>
+      <footprint>Package_TO_SOT_THT:TO-220-3_Vertical</footprint>
+      <datasheet>http://www.irf.com/product-info/datasheets/data/irf540n.pdf</datasheet>
+      <libsource lib="Transistor_FET" part="IRF540N" description="33A Id, 100V Vds, HEXFET N-Channel MOSFET, TO-220"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CEFB8AA</tstamp>
+    </comp>
+    <comp ref="J1">
+      <value>Screw_Terminal_01x02</value>
+      <datasheet>~</datasheet>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CEFFBA9</tstamp>
+    </comp>
   </components>
   <libparts>
+    <libpart lib="Connector" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Device" part="Crystal_Small">
       <description>Two pin crystal, small symbol</description>
       <docs>~</docs>
@@ -50,6 +103,68 @@
       <pins>
         <pin num="1" name="1" type="passive"/>
         <pin num="2" name="2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="MCU_Microchip_ATmega" part="ATmega48PV-10MU">
+      <aliases>
+        <alias>ATmega48P-20MU</alias>
+        <alias>ATmega48A-MU</alias>
+        <alias>ATmega48PA-MU</alias>
+        <alias>ATmega88PV-10MU</alias>
+        <alias>ATmega88P-20MU</alias>
+        <alias>ATmega88A-MU</alias>
+        <alias>ATmega88PA-MU</alias>
+        <alias>ATmega168PV-10MU</alias>
+        <alias>ATmega168P-20MU</alias>
+        <alias>ATmega168A-MU</alias>
+        <alias>ATmega168PA-MU</alias>
+        <alias>ATmega328-MU</alias>
+        <alias>ATmega328P-MU</alias>
+      </aliases>
+      <description>10MHz, 4kB Flash, 512B SRAM, 256B EEPROM, QFN-32</description>
+      <docs>http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8025-8-bit-AVR-Microcontroller-ATmega48P-88P-168P_Datasheet.pdf</docs>
+      <footprints>
+        <fp>QFN*1EP*5x5mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATmega48PV-10MU</field>
+        <field name="Footprint">Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="PD3" type="3state"/>
+        <pin num="2" name="PD4" type="3state"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="VCC" type="power_in"/>
+        <pin num="5" name="GND" type="passive"/>
+        <pin num="6" name="VCC" type="passive"/>
+        <pin num="7" name="XTAL1/PB6" type="3state"/>
+        <pin num="8" name="XTAL2/PB7" type="3state"/>
+        <pin num="9" name="PD5" type="3state"/>
+        <pin num="10" name="PD6" type="3state"/>
+        <pin num="11" name="PD7" type="3state"/>
+        <pin num="12" name="PB0" type="3state"/>
+        <pin num="13" name="PB1" type="3state"/>
+        <pin num="14" name="PB2" type="3state"/>
+        <pin num="15" name="PB3" type="3state"/>
+        <pin num="16" name="PB4" type="3state"/>
+        <pin num="17" name="PB5" type="3state"/>
+        <pin num="18" name="AVCC" type="power_in"/>
+        <pin num="19" name="ADC6" type="input"/>
+        <pin num="20" name="AREF" type="passive"/>
+        <pin num="21" name="GND" type="passive"/>
+        <pin num="22" name="ADC7" type="input"/>
+        <pin num="23" name="PC0" type="3state"/>
+        <pin num="24" name="PC1" type="3state"/>
+        <pin num="25" name="PC2" type="3state"/>
+        <pin num="26" name="PC3" type="3state"/>
+        <pin num="27" name="PC4" type="3state"/>
+        <pin num="28" name="PC5" type="3state"/>
+        <pin num="29" name="~RESET~/PC6" type="3state"/>
+        <pin num="30" name="PD0" type="3state"/>
+        <pin num="31" name="PD1" type="3state"/>
+        <pin num="32" name="PD2" type="3state"/>
+        <pin num="33" name="GND" type="passive"/>
       </pins>
     </libpart>
     <libpart lib="MCU_Microchip_ATtiny" part="ATtiny2313V-10SU">
@@ -91,77 +206,229 @@
         <pin num="20" name="VCC" type="power_in"/>
       </pins>
     </libpart>
+    <libpart lib="Switch" part="SW_DIP_x04">
+      <description>4x DIP Switch, Single Pole Single Throw (SPST) switch, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>SW?DIP?x4*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">SW</field>
+        <field name="Value">SW_DIP_x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+        <pin num="3" name="~" type="passive"/>
+        <pin num="4" name="~" type="passive"/>
+        <pin num="5" name="~" type="passive"/>
+        <pin num="6" name="~" type="passive"/>
+        <pin num="7" name="~" type="passive"/>
+        <pin num="8" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Transistor_FET" part="BUZ11">
+      <aliases>
+        <alias>IRF3205</alias>
+        <alias>IRF540N</alias>
+        <alias>IRF740</alias>
+        <alias>IRLB8721PBF</alias>
+        <alias>IRLZ34N</alias>
+        <alias>IRLZ44N</alias>
+      </aliases>
+      <description>30A Id, 50V Vds, N-Channel Power MOSFET, TO-220</description>
+      <docs>http://www.fairchildsemi.com/ds/BU/BUZ11.pdf</docs>
+      <footprints>
+        <fp>TO?220*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">BUZ11</field>
+        <field name="Footprint">Package_TO_SOT_THT:TO-220-3_Vertical</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="S" type="passive"/>
+      </pins>
+    </libpart>
   </libparts>
   <libraries>
+    <library logical="Connector">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Connector.lib</uri>
+    </library>
     <library logical="Device">
       <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
+    </library>
+    <library logical="MCU_Microchip_ATmega">
+      <uri>C:\Program Files\KiCad\share\kicad\library/MCU_Microchip_ATmega.lib</uri>
     </library>
     <library logical="MCU_Microchip_ATtiny">
       <uri>C:\Program Files\KiCad\share\kicad\library/MCU_Microchip_ATtiny.lib</uri>
     </library>
+    <library logical="Switch">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Switch.lib</uri>
+    </library>
+    <library logical="Transistor_FET">
+      <uri>C:\Program Files\KiCad\share\kicad\library/Transistor_FET.lib</uri>
+    </library>
   </libraries>
   <nets>
-    <net code="1" name="/MISO">
-      <node ref="U1" pin="18"/>
+    <net code="1" name="/SW_DIP2">
+      <node ref="SW1" pin="3"/>
+      <node ref="U2" pin="25"/>
     </net>
-    <net code="2" name="/~RST">
-      <node ref="U1" pin="1"/>
+    <net code="2" name="/SW_DIP1">
+      <node ref="SW1" pin="2"/>
+      <node ref="U2" pin="24"/>
     </net>
-    <net code="3" name="GND">
+    <net code="3" name="/SW_DIP3">
+      <node ref="SW1" pin="4"/>
+      <node ref="U2" pin="26"/>
+    </net>
+    <net code="4" name="/SW_DIP0">
+      <node ref="SW1" pin="1"/>
+      <node ref="U2" pin="23"/>
+    </net>
+    <net code="5" name="+3V3">
+      <node ref="U1" pin="20"/>
+      <node ref="U2" pin="18"/>
+      <node ref="U2" pin="4"/>
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="6" name="GND">
+      <node ref="U2" pin="5"/>
+      <node ref="Q1" pin="3"/>
+      <node ref="U2" pin="33"/>
       <node ref="U1" pin="10"/>
+      <node ref="U2" pin="3"/>
+      <node ref="U2" pin="21"/>
+      <node ref="SW1" pin="5"/>
+      <node ref="SW1" pin="6"/>
+      <node ref="SW1" pin="7"/>
+      <node ref="SW1" pin="8"/>
     </net>
-    <net code="4" name="/~PPM_IN">
-      <node ref="U1" pin="11"/>
+    <net code="7" name="Net-(U2-Pad7)">
+      <node ref="Y2" pin="2"/>
+      <node ref="U2" pin="7"/>
     </net>
-    <net code="5" name="/CMP_IN">
-      <node ref="U1" pin="12"/>
+    <net code="8" name="Net-(U2-Pad8)">
+      <node ref="U2" pin="8"/>
+      <node ref="Y2" pin="1"/>
     </net>
-    <net code="6" name="/CMP_REF">
-      <node ref="U1" pin="13"/>
+    <net code="9" name="Net-(U2-Pad20)">
+      <node ref="U2" pin="20"/>
     </net>
-    <net code="7" name="/MOTOR_A">
+    <net code="10" name="/MOSFET_GATE">
+      <node ref="U2" pin="12"/>
+      <node ref="Q1" pin="1"/>
+    </net>
+    <net code="11" name="VCC">
+      <node ref="J1" pin="1"/>
+    </net>
+    <net code="12" name="Net-(J1-Pad2)">
+      <node ref="J1" pin="2"/>
+      <node ref="Q1" pin="2"/>
+    </net>
+    <net code="13" name="/MOTOR_A">
       <node ref="U1" pin="14"/>
     </net>
-    <net code="8" name="/MOTOR_B">
-      <node ref="U1" pin="15"/>
-    </net>
-    <net code="9" name="/BUZZER">
-      <node ref="U1" pin="16"/>
-    </net>
-    <net code="10" name="/MOSI">
-      <node ref="U1" pin="17"/>
-    </net>
-    <net code="11" name="/SCK">
-      <node ref="U1" pin="19"/>
-    </net>
-    <net code="12" name="/RXD">
-      <node ref="U1" pin="2"/>
-    </net>
-    <net code="13" name="+3V3">
-      <node ref="U1" pin="20"/>
-    </net>
-    <net code="14" name="/TXD">
-      <node ref="U1" pin="3"/>
+    <net code="14" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+      <node ref="Y1" pin="1"/>
     </net>
     <net code="15" name="Net-(U1-Pad4)">
       <node ref="Y1" pin="2"/>
       <node ref="U1" pin="4"/>
     </net>
-    <net code="16" name="Net-(U1-Pad5)">
-      <node ref="Y1" pin="1"/>
-      <node ref="U1" pin="5"/>
+    <net code="16" name="/~RST">
+      <node ref="U1" pin="1"/>
     </net>
-    <net code="17" name="/WKUP0">
+    <net code="17" name="/~PPM_IN">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="18" name="/CMP_IN">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="19" name="/CMP_REF">
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="20" name="/MOTOR_B">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="21" name="/BUZZER">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="22" name="/TXD">
+      <node ref="U2" pin="31"/>
+      <node ref="U1" pin="3"/>
+    </net>
+    <net code="23" name="/SCL">
+      <node ref="U2" pin="27"/>
+    </net>
+    <net code="24" name="/SDA">
+      <node ref="U2" pin="28"/>
+    </net>
+    <net code="25" name="/~RST_2">
+      <node ref="U2" pin="29"/>
+    </net>
+    <net code="26" name="/RXD">
+      <node ref="U1" pin="2"/>
+      <node ref="U2" pin="30"/>
+    </net>
+    <net code="27" name="/TEMP_SEN1">
+      <node ref="U2" pin="22"/>
+    </net>
+    <net code="28" name="/LED_USR2">
+      <node ref="U2" pin="32"/>
+    </net>
+    <net code="29" name="/LED_USR5">
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="30" name="/MOTOR1_B">
+      <node ref="U2" pin="14"/>
+    </net>
+    <net code="31" name="/WKUP0">
       <node ref="U1" pin="6"/>
     </net>
-    <net code="18" name="/ENCODER_A">
+    <net code="32" name="/ENCODER_A">
       <node ref="U1" pin="7"/>
     </net>
-    <net code="19" name="/SW_USR_1">
+    <net code="33" name="/SW_USR_1">
       <node ref="U1" pin="8"/>
     </net>
-    <net code="20" name="/SW_USR_2">
+    <net code="34" name="/SW_USR_2">
       <node ref="U1" pin="9"/>
+    </net>
+    <net code="35" name="/LED_USR3">
+      <node ref="U2" pin="1"/>
+    </net>
+    <net code="36" name="/SW_USR_4">
+      <node ref="U2" pin="10"/>
+    </net>
+    <net code="37" name="/SW_USR_3">
+      <node ref="U2" pin="11"/>
+    </net>
+    <net code="38" name="/MOTOR1_A">
+      <node ref="U2" pin="13"/>
+    </net>
+    <net code="39" name="/MOSI">
+      <node ref="U1" pin="17"/>
+      <node ref="U2" pin="15"/>
+    </net>
+    <net code="40" name="/MISO">
+      <node ref="U1" pin="18"/>
+      <node ref="U2" pin="16"/>
+    </net>
+    <net code="41" name="/SCK">
+      <node ref="U1" pin="19"/>
+      <node ref="U2" pin="17"/>
+    </net>
+    <net code="42" name="/TEMP_SEN0">
+      <node ref="U2" pin="19"/>
+    </net>
+    <net code="43" name="/LED_USR4">
+      <node ref="U2" pin="2"/>
     </net>
   </nets>
 </export>
