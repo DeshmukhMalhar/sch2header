@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>C:\Users\malha\OneDrive\Documents\GitHub\sch2header\kicad-project\test_project_with_uC\test_project_with_uC.sch</source>
-    <date>5/27/2019 3:41:04 PM</date>
+    <date>5/29/2019 10:56:39 AM</date>
     <tool>Eeschema (5.1.0)-1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -19,14 +19,6 @@
     </sheet>
   </design>
   <components>
-    <comp ref="U1">
-      <value>ATtiny2313-20SU</value>
-      <footprint>Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm</footprint>
-      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2543-AVR-ATtiny2313_Datasheet.pdf</datasheet>
-      <libsource lib="microcontrollers" part="ATtiny2313-20SU" description="20MHz, 2kB Flash, 128B SRAM, 128B EEPROM, debugWIRE, SOIC-20"/>
-      <sheetpath names="/" tstamps="/"/>
-      <tstamp>5CEBAACE</tstamp>
-    </comp>
     <comp ref="Y1">
       <value>12M</value>
       <footprint>Crystal:Crystal_SMD_0603-4Pin_6.0x3.5mm</footprint>
@@ -34,6 +26,14 @@
       <libsource lib="Device" part="Crystal_Small" description="Two pin crystal, small symbol"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CEBF29F</tstamp>
+    </comp>
+    <comp ref="U1">
+      <value>ATtiny2313-20SU</value>
+      <footprint>Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm</footprint>
+      <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2543-AVR-ATtiny2313_Datasheet.pdf</datasheet>
+      <libsource lib="MCU_Microchip_ATtiny" part="ATtiny2313-20SU" description="20MHz, 2kB Flash, 128B SRAM, 128B EEPROM, debugWIRE, SOIC-20"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5CEE678D</tstamp>
     </comp>
   </components>
   <libparts>
@@ -52,7 +52,7 @@
         <pin num="2" name="2" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="microcontrollers" part="ATtiny2313V-10SU">
+    <libpart lib="MCU_Microchip_ATtiny" part="ATtiny2313V-10SU">
       <aliases>
         <alias>ATtiny2313-20SU</alias>
         <alias>ATtiny2313A-SU</alias>
@@ -69,25 +69,25 @@
         <field name="Footprint">Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm</field>
       </fields>
       <pins>
-        <pin num="1" name="PA2|~RESET" type="input"/>
-        <pin num="2" name="PD0|RXD" type="BiDi"/>
-        <pin num="3" name="PD1|TXD" type="BiDi"/>
-        <pin num="4" name="PA1|XTAL2" type="input"/>
-        <pin num="5" name="PA0|XTAL1" type="input"/>
-        <pin num="6" name="PD2|XCK|INT0" type="BiDi"/>
-        <pin num="7" name="PD3|INT1" type="BiDi"/>
-        <pin num="8" name="PD4|T0" type="BiDi"/>
-        <pin num="9" name="PD5|OC0B|T1" type="BiDi"/>
+        <pin num="1" name="PA2/~RESET" type="3state"/>
+        <pin num="2" name="PD0" type="3state"/>
+        <pin num="3" name="PD1" type="3state"/>
+        <pin num="4" name="PA1/XTAL2" type="3state"/>
+        <pin num="5" name="PA0/XTAL1" type="3state"/>
+        <pin num="6" name="PD2" type="3state"/>
+        <pin num="7" name="PD3" type="3state"/>
+        <pin num="8" name="PD4" type="3state"/>
+        <pin num="9" name="PD5" type="3state"/>
         <pin num="10" name="GND" type="power_in"/>
-        <pin num="11" name="PD6|ICP" type="BiDi"/>
-        <pin num="12" name="PB0|AIN0|PC10" type="BiDi"/>
-        <pin num="13" name="PB1|AIN1|PC11" type="BiDi"/>
-        <pin num="14" name="PB2|OC0A|PC12" type="BiDi"/>
-        <pin num="15" name="PB3|OC1A|PC13" type="BiDi"/>
-        <pin num="16" name="PB4|OC1B|PC14" type="BiDi"/>
-        <pin num="17" name="PB5|MOSI|SDA|PC15" type="BiDi"/>
-        <pin num="18" name="PB6|MISO|PC16" type="BiDi"/>
-        <pin num="19" name="PB7|SCK|PC17" type="BiDi"/>
+        <pin num="11" name="PD6" type="3state"/>
+        <pin num="12" name="PB0" type="3state"/>
+        <pin num="13" name="PB1" type="3state"/>
+        <pin num="14" name="PB2" type="3state"/>
+        <pin num="15" name="PB3" type="3state"/>
+        <pin num="16" name="PB4" type="3state"/>
+        <pin num="17" name="PB5" type="3state"/>
+        <pin num="18" name="PB6" type="3state"/>
+        <pin num="19" name="PB7" type="3state"/>
         <pin num="20" name="VCC" type="power_in"/>
       </pins>
     </libpart>
@@ -96,60 +96,60 @@
     <library logical="Device">
       <uri>C:\Program Files\KiCad\share\kicad\library/Device.lib</uri>
     </library>
-    <library logical="microcontrollers">
-      <uri>C:/Users/malha/OneDrive/Documents/GitHub/kicad-lib/uC_LIB/microcontrollers.lib</uri>
+    <library logical="MCU_Microchip_ATtiny">
+      <uri>C:\Program Files\KiCad\share\kicad\library/MCU_Microchip_ATtiny.lib</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="GND">
-      <node ref="U1" pin="10"/>
-    </net>
-    <net code="2" name="+3V3">
-      <node ref="U1" pin="20"/>
-    </net>
-    <net code="3" name="Net-(U1-Pad5)">
-      <node ref="U1" pin="5"/>
-      <node ref="Y1" pin="1"/>
-    </net>
-    <net code="4" name="Net-(U1-Pad4)">
-      <node ref="U1" pin="4"/>
-      <node ref="Y1" pin="2"/>
-    </net>
-    <net code="5" name="/RXD">
-      <node ref="U1" pin="2"/>
-    </net>
-    <net code="6" name="/~PPM_IN">
-      <node ref="U1" pin="11"/>
-    </net>
-    <net code="7" name="/CMP_IN">
-      <node ref="U1" pin="12"/>
-    </net>
-    <net code="8" name="/CMP_REF">
-      <node ref="U1" pin="13"/>
-    </net>
-    <net code="9" name="/MOTOR_A">
-      <node ref="U1" pin="14"/>
-    </net>
-    <net code="10" name="/MOTOR_B">
-      <node ref="U1" pin="15"/>
-    </net>
-    <net code="11" name="/BUZZER">
-      <node ref="U1" pin="16"/>
-    </net>
-    <net code="12" name="/MOSI">
-      <node ref="U1" pin="17"/>
-    </net>
-    <net code="13" name="/MISO">
+    <net code="1" name="/MISO">
       <node ref="U1" pin="18"/>
     </net>
-    <net code="14" name="/SCK">
-      <node ref="U1" pin="19"/>
-    </net>
-    <net code="15" name="/~RST">
+    <net code="2" name="/~RST">
       <node ref="U1" pin="1"/>
     </net>
-    <net code="16" name="/TXD">
+    <net code="3" name="GND">
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="4" name="/~PPM_IN">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="5" name="/CMP_IN">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="6" name="/CMP_REF">
+      <node ref="U1" pin="13"/>
+    </net>
+    <net code="7" name="/MOTOR_A">
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="8" name="/MOTOR_B">
+      <node ref="U1" pin="15"/>
+    </net>
+    <net code="9" name="/BUZZER">
+      <node ref="U1" pin="16"/>
+    </net>
+    <net code="10" name="/MOSI">
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="11" name="/SCK">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="12" name="/RXD">
+      <node ref="U1" pin="2"/>
+    </net>
+    <net code="13" name="+3V3">
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="14" name="/TXD">
       <node ref="U1" pin="3"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad4)">
+      <node ref="Y1" pin="2"/>
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="16" name="Net-(U1-Pad5)">
+      <node ref="Y1" pin="1"/>
+      <node ref="U1" pin="5"/>
     </net>
     <net code="17" name="/WKUP0">
       <node ref="U1" pin="6"/>
