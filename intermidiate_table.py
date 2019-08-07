@@ -16,12 +16,12 @@ root = tree.getroot()
 # print(type(root.attrib))
 
 
-for child_generation1 in root.getchildren():
+for child_generation1 in list(root):
     # Get values of CPU parts used in the sch in a list
 
     # check if the child of root is tagged components
     if child_generation1.tag == "components":
-        for comp in child_generation1.getchildren():
+        for comp in list(child_generation1):
             # for every component tag pair in components list
             # if it's reference matches with the any of the
             # references given in the list of cpu references
@@ -29,7 +29,7 @@ for child_generation1 in root.getchildren():
                 child_comp_cpu = comp
             # then iterate over it's parameters until
             #  the value tag is found
-                for param in child_comp_cpu.getchildren():
+                for param in list(child_comp_cpu):
                     # check if tag is value under childs of componenet
                     if param.tag == "value":
                         # append the value of used component to the list
@@ -37,18 +37,18 @@ for child_generation1 in root.getchildren():
 
 # completely iterate over the given tree and find all the values/alises for given CPU refs
 
-for child_generation1 in root.getchildren():
+for child_generation1 in list(root):
     if child_generation1.tag == "libparts":
         child_libparts = child_generation1
 
-        for libpart in child_libparts.getchildren():
+        for libpart in list(child_libparts):
             alias_list = []
             if libpart.tag == "libpart":
                 part_name = libpart.attrib["part"]
-                for parameter in libpart.getchildren():
+                for parameter in list(libpart):
                     if parameter.tag == "aliases":
                         child_aliases = parameter
-                        for alias in child_aliases.getchildren():
+                        for alias in list(child_aliases):
                             alias_list.append(alias.text)
 
             for value in cpu_values:
@@ -56,10 +56,10 @@ for child_generation1 in root.getchildren():
                 cpu_pin_num = []
                 if value in alias_list or value == part_name:
                     child_cpu_libpart = libpart
-                    for parameter in child_cpu_libpart.getchildren():
+                    for parameter in list(child_cpu_libpart):
                         if parameter.tag == "pins":
                             pins = parameter
-                            for pin in pins.getchildren():
+                            for pin in list(pins):
                                 cpu_pin_names.append(
                                     pin.attrib["name"])
                                 cpu_pin_num.append(pin.attrib["num"])
@@ -72,17 +72,17 @@ net_table = []
 
 # ERROR : There is no any corelation between cpu pin table and net table
 # Find something to bind those correctly together
-for child_generation1 in root.getchildren():
+for child_generation1 in list(root):
     if child_generation1.tag == "nets":
         nets = child_generation1
         for ref in cpu_refs_list:
             # for value in cpu_values:
             net_names = []
             net_cpu_pin = []
-            for net in nets.getchildren():
+            for net in list(nets):
                 if(net.tag == "net"):
                     if re.match("/.+", net.attrib["name"]):
-                        for node in net.getchildren():
+                        for node in list(net):
                             if node.attrib["ref"] == ref:
                                 net_cpu_pin.append(node.attrib["pin"])
                                 net_name = net.attrib["name"]
