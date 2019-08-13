@@ -311,4 +311,15 @@ Text Label 7600 3450 0    50   ~ 0
 SW_DIP2
 Text Label 7600 3550 0    50   ~ 0
 SW_DIP3
+$Comp
+L Analog_ADC:MCP3204 U3
+U 1 1 5D50E6C3
+P 2950 6200
+F 0 "U3" H 2950 6781 50  0000 C CNN
+F 1 "MCP3204" H 2950 6690 50  0000 C CNN
+F 2 "" H 3850 5900 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf" H 3850 5900 50  0001 C CNN
+	1    2950 6200
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
