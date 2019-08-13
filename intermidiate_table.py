@@ -1,12 +1,10 @@
+# %%
 import xml.etree.ElementTree as ET
 import re
 
 cpu_refs_list = ["U1", "U2"]
 cpu_values = []
-cpu_alias_list = []
 
-
-cpu_pin_table = []
 
 netlist_xml = "kicad-project/test_project_with_uC/test_project_with_uC.xml"
 tree = ET.parse(netlist_xml)
@@ -15,7 +13,7 @@ root = tree.getroot()
 # print(root.tag, root.attrib)
 # print(type(root.attrib))
 
-
+# %%
 for group in list(root):
     # Get values of CPU parts used in the sch in a list
 
@@ -35,122 +33,117 @@ for group in list(root):
                         # append the value of used component to the list
                         cpu_values.append(parameters.text)
 
+# %%
+
 # Find the library parts group in the root
 # assign the group to a variable
 for group in list(root):
     if group.tag == "libparts":
         libparts = group
 
-# For each libpart in the libparts group
-for libpart in list(libparts):
-    cpu_libparts = []
+# %%
+cpu_pin_table_list = list()
+# For each CPU in the list
+for cpu_value in cpu_values:
+    # Empty dict to hold the pin dict
+    # Will be created for each cpu in cpu_values
+    cpu_pin_table = dict()
 
-    if libpart.tag == "libpart":
-        # Extract the part name. Do we need this ?
-        part_name = libpart.attrib["part"]
+    # For each libpart in the libparts group
+    for libpart in list(libparts):
+        # empty alias list for each libpart
+        # If parts other than CPU have alias, we will be able to find cpus by
+        #   seeing if the current cpu is in the list of aliases of current part
+        #   Thus, extracting the correct pin table for the cpu
 
-        # For each parameter of the part, do
-        for parameter in list(libpart):
-            # Find the fields tag
-            if parameter.tag == "fields":
-                child_fields = parameter
-                # For every field , find the field of 'Value'
-                #   if the value is in the value list of CPUs to be found
-                #   this is the libpart we are looking for
-                #   append this to a hold list for processing
-                for field in list(child_fields):
+        libpart_alias_list = list()
+        if libpart.tag == "libpart":
+            # Extract the part name. Do we need this ?
+            part_name = libpart.attrib["part"]
 
-                    if field.attrib["name"] == 'Value':
-                        if field.text in cpu_values:
-                            cpu_libparts.append(libpart)
+            # For each parameter of the part, do
+            for parameter in list(libpart):
+                # Find the fields tag
+                if parameter.tag == "aliases":
+                    parameter_aliases = parameter
+                    for alias in parameter_aliases:
+                        libpart_alias_list.append(alias.text)
 
-# For each part,which is CPu, as found in the previous loop
+        if cpu_value in libpart_alias_list:
+            # This is a cpu we are looking at, extract the pin map
+            for parameter in list(libpart):
+                if parameter.tag == "pins":
+                    pins = parameter
+                    for pin in pins:
+                        cpu_pin_table[pin.attrib['num']] = pin.attrib['name']
 
-for cpu_libpart in cpu_libparts:
-    # Hold the pin names and numbers for each cpu
-    # Declared here, as for each new cpu_libpart, the lists will be cleared
-    cpu_pin_names = []
-    cpu_pin_num = []
-    # starting with clear lists of pin name and number for each CPU
-    for parameter in list(cpu_libpart):
-        # Find the 'pins' section of libparts
-        if parameter.tag == "pins":
-            pins = parameter
-            # For each pin in pins,
-            #   add it's name and nuimber to respective lists
-            for pin in list(pins):
-                cpu_pin_names.append(pin.attrib["name"])
-                cpu_pin_num.append(pin.attrib["num"])
-
-    # Do add the lists to pin table
-    # These pairs(?) are added to a table , where each vector holds "Pin Name" VS "Pin Number" of each CPU
-    cpu_pin_table.append([cpu_pin_num, cpu_pin_names])
-
-#             for value in cpu_values:
-#                 cpu_pin_names = []
-#                 cpu_pin_num = []
-#                 if value in alias_list or value == part_name:
-#                     child_cpu_libpart = libpart
-#                     for parameter in list(child_cpu_libpart):
-#                         if parameter.tag == "pins":
-#                             pins = parameter
-#                             for pin in list(pins):
-#                                 cpu_pin_names.append(
-#                                     pin.attrib["name"])
-#                                 cpu_pin_num.append(pin.attrib["num"])
-#                     cpu_pin_table.append([cpu_pin_num, cpu_pin_names])
-
-# # print(cpu_pin_table)
-# print("\n\n\n")
-# net_table = []
+    cpu_pin_table_list.append(cpu_pin_table)
 
 
-# # ERROR : There is no any corelation between cpu pin table and net table
-# # Find something to bind those correctly together
-# for group in list(root):
-#     if group.tag == "nets":
-#         nets = group
-#         for ref in cpu_refs_list:
-#             # for value in cpu_values:
-#             net_names = []
-#             net_cpu_pin = []
-#             for net in list(nets):
-#                 if(net.tag == "net"):
-#                     if re.match("/.+", net.attrib["name"]):
-#                         for node in list(net):
-#                             if node.attrib["ref"] == ref:
-#                                 net_cpu_pin.append(node.attrib["pin"])
-#                                 net_name = net.attrib["name"]
-#                                 net_name = net_name.replace('/', '')
-#                                 net_names.append(net_name)
-#             net_table.append([net_cpu_pin, net_names])
-# # print(net_table)
+# %%
+# print(cpu_pin_table_list)
 
-# print(cpu_pin_table[0])
-# print("\n\n\n")
-# print(net_table[0])
-# for child in child_nets.getchildren():
-#     if (child.tag == "net"):
-#         net_name = child.attrib["name"]
-#         if(re.match("/.+", net_name)):
-#             net_name = net_name.replace('/', '')
-#             net_names.append(net_name)
-#             # Currently let's leave the '~' in the names, it will be helpful
-#             # if we generate a comment stating "this pin is inverted"
-#             # and the remove the '~' and generate the #define statement
-#             for node in child.getchildren():
-#                 if node.tag == "node":
-#                     if node.attrib["ref"] in cpu_refs_list:
-#                         net_cpu_pin.append(node.attrib["pin"])
+# %%
 
+for table in cpu_pin_table_list:
+    print(table)
+    print('\n\n')
+# %%
+for group in list(root):
+    if group.tag == 'nets':
+        nets = group
 
-# # print(cpu_pin_net_bindings)
-# # print(len(net_cpu_pin),len(net_names))
-# # IMPORTANT to have len(net_cpu_pin) == len(net_names)
-# # for correct 1 to 1 mapping otherwise we will miss some net names or pin numbers
+# %%
 
-#                     net_name = net_name.replace('/', '')
-#                     net_names.append(net_name)
-#                     # Currently let's leave the '~' in the names, it will be helpful
-#                     # if we generate a comment stating "this pin is inverted"
-#                     # and the remove the '~' and generate the #define statement
+net_table_list = list()
+
+for cpu_ref in cpu_refs_list:
+    net_table_dict = dict()
+
+    for net in list(nets):
+        net_refs = list()
+
+        net_name = net.attrib['name']
+        # If the net is user created
+        if re.match("/.+", net_name):
+            # Strip the leading '/'
+            net_name = net_name.replace('/', '')
+
+            # For each node on the net, get
+            #   all the parts
+            for node in list(net):
+                net_refs.append(node.attrib['ref'])
+
+            if cpu_ref in net_refs:
+                for node in list(net):
+                    if node.attrib['ref'] == cpu_ref:
+                        net_table_dict[node.attrib['pin']] = net_name
+
+    net_table_list.append(net_table_dict)
+
+# %%
+# print(net_table_list)
+
+# %%
+for net_table in net_table_list:
+    print(net_table)
+    print('\n\n')
+
+# %%
+
+pin_map_list = list()
+
+for i in range(len(cpu_refs_list)):
+    common_pins = net_table_list[i].keys() & cpu_pin_table_list[i].keys()
+    print(common_pins)
+    pin_map = dict()
+    for common_pin in common_pins:
+        pin_map[cpu_pin_table_list[i][common_pin]
+                ] = net_table_list[i][common_pin]
+
+    pin_map_list.append(pin_map)
+# %%
+print('Printing Pin Maps')
+for pin_map in pin_map_list:
+    print(pin_map)
+    print('\n')
