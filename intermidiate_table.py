@@ -85,9 +85,10 @@ for cpu_value in cpu_values:
 
 # %%
 
-for table in cpu_pin_table_list:
-    print(table)
-    print('\n\n')
+# for table in cpu_pin_table_list:
+#     print(table)
+#     print('\n\n')
+
 # %%
 for group in list(root):
     if group.tag == 'nets':
@@ -124,10 +125,10 @@ for cpu_ref in cpu_refs_list:
 # %%
 # print(net_table_list)
 
-# %%
-for net_table in net_table_list:
-    print(net_table)
-    print('\n\n')
+# # %%
+# for net_table in net_table_list:
+#     print(net_table)
+#     print('\n\n')
 
 # %%
 
@@ -135,15 +136,46 @@ pin_map_list = list()
 
 for i in range(len(cpu_refs_list)):
     common_pins = net_table_list[i].keys() & cpu_pin_table_list[i].keys()
-    print(common_pins)
+    # print(common_pins)
+    # print(cpu_refs_list[(i)])
     pin_map = dict()
     for common_pin in common_pins:
         pin_map[cpu_pin_table_list[i][common_pin]
                 ] = net_table_list[i][common_pin]
 
     pin_map_list.append(pin_map)
+
+    filename = str(cpu_refs_list[i])
+    file_ext = '.h'
+    filename = filename + file_ext
+    header_file = open(filename, 'w+')
+
+    for pin in pin_map:
+        pin_name = str(pin).replace('/', '')
+        pin_name = re.sub('(~.+~/) |(~.+~)|(~)|RESET', '', pin_name)
+        pin_value = re.sub('(~.+~/) |(~.+~)|(~)', '', str(pin_map[pin]))
+
+        out_str = '#define ' + pin_value + ' ' + pin_name + '\n'
+
+        header_file.write(out_str)
+
+    header_file.close
+
+
 # %%
-print('Printing Pin Maps')
+# print('Printing Pin Maps')
+# for pin_map in pin_map_list:
+#     print(pin_map)
+#     print('\n')
+
+
+# %%
+logfile = open('log.txt', 'w+')
 for pin_map in pin_map_list:
-    print(pin_map)
-    print('\n')
+    logfile.write(str(pin_map))
+    logfile.write('\n')
+
+logfile.close
+
+
+# %%
