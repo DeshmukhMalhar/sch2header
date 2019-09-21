@@ -35,3 +35,6 @@ how_to_parse_the_kicad_netlist.pdf
 
 *-cache.lib
 comments_scratch.txt
+
+U*.h
+log.txt
