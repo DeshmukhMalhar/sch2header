@@ -2,8 +2,7 @@
 import xml.etree.ElementTree as ET
 import re
 
-cpu_refs_list = ["U1", "U2"]
-cpu_values = []
+cpu_refs_list = ["U6", "U2"]
 
 
 netlist_xml = "kicad-project/test_project_with_uC/test_project_with_uC.xml"
@@ -14,24 +13,29 @@ root = tree.getroot()
 # print(type(root.attrib))
 
 # %%
+cpu_values_list = []
+
 for group in list(root):
     # Get values of CPU parts used in the sch in a list
 
-    # check if the child of root is tagged components
+    # check if the child of root is tagged as 'components'
     if group.tag == "components":
-        for component in list(group):
-            # for every component tag pair in components list
-            # if it's reference matches with the any of the
-            # references given in the list of cpu references
-            if component.attrib["ref"] in cpu_refs_list:
-                child_comp_cpu = component
-            # then iterate over it's parameters until
-            #  the value tag is found
-                for parameters in list(child_comp_cpu):
-                    # check if tag is value under childs of componenet
-                    if parameters.tag == "value":
-                        # append the value of used component to the list
-                        cpu_values.append(parameters.text)
+        for ref in cpu_refs_list:
+            # for each cpu ref in the cpu refs list
+            # find the component subtree for it
+            # then, get the value
+            cpu_values = list()
+            for component in list(group):
+                if component.attrib["ref"] == ref:
+                    child_comp_cpu = component
+                # then iterate over it's parameters until
+                #  the value tag is found
+                    for parameters in list(child_comp_cpu):
+                        # check if tag is value under childs of componenet
+                        if parameters.tag == "value":
+                            # append the value of used component to the list
+                            cpu_values.append(parameters.text)
+            cpu_values_list.append(cpu_values)
 
 # %%
 
@@ -105,7 +109,8 @@ for cpu_ref in cpu_refs_list:
         net_refs = list()
 
         net_name = net.attrib['name']
-        # If the net is user created
+        # If the net is user created it will have a leading '/'
+        # we want user created nets only
         if re.match("/.+", net_name):
             # Strip the leading '/'
             net_name = net_name.replace('/', '')

@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>D:\Documents\GitHub\sch2header\kicad-project\test_project_with_uC\test_project_with_uC.sch</source>
-    <date>8/13/2019 7:12:34 PM</date>
+    <date>9/21/2019 9:24:40 PM</date>
     <tool>Eeschema (5.1.2)-2</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -27,7 +27,7 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CEBF29F</tstamp>
     </comp>
-    <comp ref="U1">
+    <comp ref="U2">
       <value>ATtiny2313-20SU</value>
       <footprint>Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm</footprint>
       <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2543-AVR-ATtiny2313_Datasheet.pdf</datasheet>
@@ -35,7 +35,7 @@
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5CEE678D</tstamp>
     </comp>
-    <comp ref="U2">
+    <comp ref="U6">
       <value>ATmega328-MU</value>
       <footprint>Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm</footprint>
       <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf</datasheet>
@@ -314,46 +314,46 @@
   </libraries>
   <nets>
     <net code="1" name="/SW_DIP2">
-      <node ref="U2" pin="25"/>
+      <node ref="U6" pin="25"/>
       <node ref="SW1" pin="3"/>
     </net>
     <net code="2" name="/SW_DIP3">
-      <node ref="U2" pin="26"/>
+      <node ref="U6" pin="26"/>
       <node ref="SW1" pin="4"/>
     </net>
     <net code="3" name="/SW_DIP1">
-      <node ref="U2" pin="24"/>
+      <node ref="U6" pin="24"/>
       <node ref="SW1" pin="2"/>
     </net>
-    <net code="4" name="Net-(U2-Pad20)">
-      <node ref="U2" pin="20"/>
+    <net code="4" name="Net-(U6-Pad20)">
+      <node ref="U6" pin="20"/>
     </net>
     <net code="5" name="/MOSFET_GATE">
       <node ref="Q1" pin="1"/>
-      <node ref="U2" pin="12"/>
+      <node ref="U6" pin="12"/>
     </net>
     <net code="6" name="GND">
       <node ref="SW1" pin="8"/>
-      <node ref="U1" pin="10"/>
-      <node ref="U2" pin="5"/>
-      <node ref="U2" pin="3"/>
-      <node ref="U2" pin="33"/>
+      <node ref="U2" pin="10"/>
+      <node ref="U6" pin="5"/>
+      <node ref="U6" pin="3"/>
+      <node ref="U6" pin="33"/>
       <node ref="SW1" pin="6"/>
       <node ref="SW1" pin="5"/>
       <node ref="SW1" pin="7"/>
       <node ref="Q1" pin="3"/>
-      <node ref="U2" pin="21"/>
+      <node ref="U6" pin="21"/>
     </net>
-    <net code="7" name="Net-(U2-Pad7)">
+    <net code="7" name="Net-(U6-Pad7)">
       <node ref="Y2" pin="2"/>
-      <node ref="U2" pin="7"/>
+      <node ref="U6" pin="7"/>
     </net>
-    <net code="8" name="Net-(U2-Pad8)">
+    <net code="8" name="Net-(U6-Pad8)">
       <node ref="Y2" pin="1"/>
-      <node ref="U2" pin="8"/>
+      <node ref="U6" pin="8"/>
     </net>
     <net code="9" name="/SW_DIP0">
-      <node ref="U2" pin="23"/>
+      <node ref="U6" pin="23"/>
       <node ref="SW1" pin="1"/>
     </net>
     <net code="10" name="Net-(U3-Pad13)">
@@ -406,110 +406,110 @@
       <node ref="Q1" pin="2"/>
     </net>
     <net code="26" name="/~RST">
-      <node ref="U1" pin="1"/>
-    </net>
-    <net code="27" name="/~PPM_IN">
-      <node ref="U1" pin="11"/>
-    </net>
-    <net code="28" name="/CMP_IN">
-      <node ref="U1" pin="12"/>
-    </net>
-    <net code="29" name="/CMP_REF">
-      <node ref="U1" pin="13"/>
-    </net>
-    <net code="30" name="/MOTOR_A">
-      <node ref="U1" pin="14"/>
-    </net>
-    <net code="31" name="/MOTOR_B">
-      <node ref="U1" pin="15"/>
-    </net>
-    <net code="32" name="/BUZZER">
-      <node ref="U1" pin="16"/>
-    </net>
-    <net code="33" name="/SCK">
-      <node ref="U1" pin="19"/>
-      <node ref="U2" pin="17"/>
-    </net>
-    <net code="34" name="+3V3">
-      <node ref="U2" pin="4"/>
-      <node ref="U2" pin="6"/>
-      <node ref="U2" pin="18"/>
-      <node ref="U1" pin="20"/>
-    </net>
-    <net code="35" name="Net-(U1-Pad4)">
-      <node ref="Y1" pin="2"/>
-      <node ref="U1" pin="4"/>
-    </net>
-    <net code="36" name="Net-(U1-Pad5)">
-      <node ref="Y1" pin="1"/>
-      <node ref="U1" pin="5"/>
-    </net>
-    <net code="37" name="/WKUP0">
-      <node ref="U1" pin="6"/>
-    </net>
-    <net code="38" name="/ENCODER_A">
-      <node ref="U1" pin="7"/>
-    </net>
-    <net code="39" name="/SW_USR_1">
-      <node ref="U1" pin="8"/>
-    </net>
-    <net code="40" name="/SDA">
-      <node ref="U2" pin="28"/>
-    </net>
-    <net code="41" name="/~RST_2">
-      <node ref="U2" pin="29"/>
-    </net>
-    <net code="42" name="/RXD">
-      <node ref="U2" pin="30"/>
-      <node ref="U1" pin="2"/>
-    </net>
-    <net code="43" name="/TXD">
-      <node ref="U2" pin="31"/>
-      <node ref="U1" pin="3"/>
-    </net>
-    <net code="44" name="/LED_USR2">
-      <node ref="U2" pin="32"/>
-    </net>
-    <net code="45" name="/SCL">
-      <node ref="U2" pin="27"/>
-    </net>
-    <net code="46" name="/LED_USR5">
-      <node ref="U2" pin="9"/>
-    </net>
-    <net code="47" name="/SW_USR_2">
-      <node ref="U1" pin="9"/>
-    </net>
-    <net code="48" name="/LED_USR3">
       <node ref="U2" pin="1"/>
     </net>
-    <net code="49" name="/SW_USR_4">
-      <node ref="U2" pin="10"/>
-    </net>
-    <net code="50" name="/SW_USR_3">
+    <net code="27" name="/~PPM_IN">
       <node ref="U2" pin="11"/>
     </net>
-    <net code="51" name="/MOTOR1_A">
+    <net code="28" name="/CMP_IN">
+      <node ref="U2" pin="12"/>
+    </net>
+    <net code="29" name="/CMP_REF">
       <node ref="U2" pin="13"/>
     </net>
-    <net code="52" name="/MOTOR1_B">
+    <net code="30" name="/MOTOR_A">
       <node ref="U2" pin="14"/>
     </net>
-    <net code="53" name="/MOSI">
-      <node ref="U1" pin="17"/>
+    <net code="31" name="/MOTOR_B">
       <node ref="U2" pin="15"/>
     </net>
-    <net code="54" name="/MISO">
+    <net code="32" name="/BUZZER">
       <node ref="U2" pin="16"/>
-      <node ref="U1" pin="18"/>
     </net>
-    <net code="55" name="/TEMP_SEN0">
+    <net code="33" name="/SCK">
       <node ref="U2" pin="19"/>
+      <node ref="U6" pin="17"/>
     </net>
-    <net code="56" name="/LED_USR4">
+    <net code="34" name="+3V3">
+      <node ref="U6" pin="4"/>
+      <node ref="U6" pin="6"/>
+      <node ref="U6" pin="18"/>
+      <node ref="U2" pin="20"/>
+    </net>
+    <net code="35" name="Net-(U2-Pad4)">
+      <node ref="Y1" pin="2"/>
+      <node ref="U2" pin="4"/>
+    </net>
+    <net code="36" name="Net-(U2-Pad5)">
+      <node ref="Y1" pin="1"/>
+      <node ref="U2" pin="5"/>
+    </net>
+    <net code="37" name="/WKUP0">
+      <node ref="U2" pin="6"/>
+    </net>
+    <net code="38" name="/ENCODER_A">
+      <node ref="U2" pin="7"/>
+    </net>
+    <net code="39" name="/SW_USR_1">
+      <node ref="U2" pin="8"/>
+    </net>
+    <net code="40" name="/SDA">
+      <node ref="U6" pin="28"/>
+    </net>
+    <net code="41" name="/~RST_2">
+      <node ref="U6" pin="29"/>
+    </net>
+    <net code="42" name="/RXD">
+      <node ref="U6" pin="30"/>
       <node ref="U2" pin="2"/>
     </net>
+    <net code="43" name="/TXD">
+      <node ref="U6" pin="31"/>
+      <node ref="U2" pin="3"/>
+    </net>
+    <net code="44" name="/LED_USR2">
+      <node ref="U6" pin="32"/>
+    </net>
+    <net code="45" name="/SCL">
+      <node ref="U6" pin="27"/>
+    </net>
+    <net code="46" name="/LED_USR5">
+      <node ref="U6" pin="9"/>
+    </net>
+    <net code="47" name="/SW_USR_2">
+      <node ref="U2" pin="9"/>
+    </net>
+    <net code="48" name="/LED_USR3">
+      <node ref="U6" pin="1"/>
+    </net>
+    <net code="49" name="/SW_USR_4">
+      <node ref="U6" pin="10"/>
+    </net>
+    <net code="50" name="/SW_USR_3">
+      <node ref="U6" pin="11"/>
+    </net>
+    <net code="51" name="/MOTOR1_A">
+      <node ref="U6" pin="13"/>
+    </net>
+    <net code="52" name="/MOTOR1_B">
+      <node ref="U6" pin="14"/>
+    </net>
+    <net code="53" name="/MOSI">
+      <node ref="U2" pin="17"/>
+      <node ref="U6" pin="15"/>
+    </net>
+    <net code="54" name="/MISO">
+      <node ref="U6" pin="16"/>
+      <node ref="U2" pin="18"/>
+    </net>
+    <net code="55" name="/TEMP_SEN0">
+      <node ref="U6" pin="19"/>
+    </net>
+    <net code="56" name="/LED_USR4">
+      <node ref="U6" pin="2"/>
+    </net>
     <net code="57" name="/TEMP_SEN1">
-      <node ref="U2" pin="22"/>
+      <node ref="U6" pin="22"/>
     </net>
   </nets>
 </export>
