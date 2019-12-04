@@ -1,0 +1,3 @@
+D:\Documents\GitHub\sch2header\args_test.py
+D:\Documents\GitHub\sch2header\kicad-project\test_project_with_uC\test_project_with_uC.xml
+D:\Documents\GitHub\sch2header
