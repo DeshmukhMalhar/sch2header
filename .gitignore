@@ -38,3 +38,6 @@ comments_scratch.txt
 
 U*.h
 log.txt
+*.pyc
+header/m328_hw.h
+header/t2313_hw.h
