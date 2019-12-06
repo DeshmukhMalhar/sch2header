@@ -1,0 +1,208 @@
+---
+components:
+  - ref: J1
+    value: Screw_Terminal_01x02
+    lib: Connector
+    device: Screw_Terminal_01x02
+    footprint: 
+    pins:
+     - num: 1
+       net: VCC
+     - num: 2
+       net: Net-(J1-Pad2)
+  - ref: Q1
+    value: IRF540N
+    lib: Transistor_FET
+    device: IRF540N
+    footprint: Package_TO_SOT_THT:TO-220-3_Vertical
+    pins:
+     - num: 1
+       net: /MOSFET_GATE
+     - num: 2
+       net: Net-(J1-Pad2)
+     - num: 3
+       net: GND
+  - ref: SW1
+    value: SW_DIP_x04
+    lib: Switch
+    device: SW_DIP_x04
+    footprint: 
+    pins:
+     - num: 1
+       net: /SW_DIP0
+     - num: 2
+       net: /SW_DIP1
+     - num: 3
+       net: /SW_DIP2
+     - num: 4
+       net: /SW_DIP3
+     - num: 5
+       net: GND
+     - num: 6
+       net: GND
+     - num: 7
+       net: GND
+     - num: 8
+       net: GND
+  - ref: U2
+    value: ATtiny2313-20SU
+    lib: MCU_Microchip_ATtiny
+    device: ATtiny2313-20SU
+    footprint: Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm
+    pins:
+     - num: 1
+       net: /~RST
+     - num: 2
+       net: /RXD
+     - num: 3
+       net: /TXD
+     - num: 4
+       net: /X2
+     - num: 5
+       net: /X1
+     - num: 6
+       net: /WKUP0
+     - num: 7
+       net: /ENCODER_A
+     - num: 8
+       net: /SW_USR_1
+     - num: 9
+       net: /SW_USR_2
+     - num: 10
+       net: GND
+     - num: 11
+       net: /~PPM_IN
+     - num: 12
+       net: /CMP_IN
+     - num: 13
+       net: /CMP_REF
+     - num: 14
+       net: /MOTOR_A
+     - num: 15
+       net: /MOTOR_B
+     - num: 16
+       net: /BUZZER
+     - num: 17
+       net: /MOSI
+     - num: 18
+       net: /MISO
+     - num: 19
+       net: /SCK
+     - num: 20
+       net: +3V3
+  - ref: U3
+    value: MCP3204
+    lib: Analog_ADC
+    device: MCP3204
+    footprint: 
+    pins:
+     - num: 1
+       net: Net-(U3-Pad1)
+     - num: 2
+       net: Net-(U3-Pad2)
+     - num: 3
+       net: Net-(U3-Pad3)
+     - num: 4
+       net: Net-(U3-Pad4)
+     - num: 5
+       net: Net-(U3-Pad5)
+     - num: 6
+       net: Net-(U3-Pad6)
+     - num: 7
+       net: Net-(U3-Pad7)
+     - num: 8
+       net: Net-(U3-Pad8)
+     - num: 9
+       net: Net-(U3-Pad9)
+     - num: 10
+       net: Net-(U3-Pad10)
+     - num: 11
+       net: Net-(U3-Pad11)
+     - num: 12
+       net: Net-(U3-Pad12)
+     - num: 13
+       net: Net-(U3-Pad13)
+     - num: 14
+       net: Net-(U3-Pad14)
+  - ref: U6
+    value: ATmega328-MU
+    lib: MCU_Microchip_ATmega
+    device: ATmega328-MU
+    footprint: Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm
+    pins:
+     - num: 1
+       net: /LED_USR3
+     - num: 2
+       net: /LED_USR4
+     - num: 3
+       net: GND
+     - num: 4
+       net: +3V3
+     - num: 5
+       net: GND
+     - num: 6
+       net: +3V3
+     - num: 7
+       net: Net-(U6-Pad7)
+     - num: 8
+       net: Net-(U6-Pad8)
+     - num: 9
+       net: /LED_USR5
+     - num: 10
+       net: /SW_USR_4
+     - num: 11
+       net: /SW_USR_3
+     - num: 12
+       net: /MOSFET_GATE
+     - num: 13
+       net: /MOTOR1_A
+     - num: 14
+       net: /MOTOR1_B
+     - num: 15
+       net: /MOSI
+     - num: 16
+       net: /MISO
+     - num: 17
+       net: /SCK
+     - num: 18
+       net: +3V3
+     - num: 19
+       net: /TEMP_SEN0
+     - num: 20
+       net: Net-(U6-Pad20)
+     - num: 21
+       net: GND
+     - num: 22
+       net: /TEMP_SEN1
+     - num: 23
+       net: /SW_DIP0
+     - num: 24
+       net: /SW_DIP1
+     - num: 25
+       net: /SW_DIP2
+     - num: 26
+       net: /SW_DIP3
+     - num: 27
+       net: /SCL
+     - num: 28
+       net: /SDA
+     - num: 29
+       net: /~RST_2
+     - num: 30
+       net: /RXD
+     - num: 31
+       net: /TXD
+     - num: 32
+       net: /LED_USR2
+     - num: 33
+       net: GND
+  - ref: Y2
+    value: 16M
+    lib: Device
+    device: Crystal_Small
+    footprint: Crystal:Crystal_SMD_0603-4Pin_6.0x3.5mm
+    pins:
+     - num: 1
+       net: Net-(U6-Pad8)
+     - num: 2
+       net: Net-(U6-Pad7)

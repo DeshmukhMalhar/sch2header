@@ -70,17 +70,6 @@ Wire Wire Line
 	1900 3150 1800 3150
 Wire Wire Line
 	1800 2950 1900 2950
-$Comp
-L Device:Crystal_Small Y1
-U 1 1 5CEBF29F
-P 1800 3050
-F 0 "Y1" V 1800 3150 50  0000 L CNN
-F 1 "12M" H 1750 2900 50  0000 L CNN
-F 2 "Crystal:Crystal_SMD_0603-4Pin_6.0x3.5mm" H 1800 3050 50  0001 C CNN
-F 3 "~" H 1800 3050 50  0001 C CNN
-	1    1800 3050
-	0    1    1    0   
-$EndComp
 Text Label 1900 2750 2    50   ~ 0
 ~RST
 $Comp
@@ -91,6 +80,7 @@ F 0 "U2" H 2650 4600 50  0000 C CNN
 F 1 "ATtiny2313-20SU" H 2450 3550 50  0000 C CNN
 F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 2500 3550 50  0001 C CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2543-AVR-ATtiny2313_Datasheet.pdf" H 2500 3550 50  0001 C CNN
+F 4 "header/t2313_hw.h" H 2500 3550 50  0001 C CNN "header"
 	1    2500 3550
 	1    0    0    -1  
 $EndComp
@@ -102,6 +92,7 @@ F 0 "U6" H 7200 5000 50  0000 C CNN
 F 1 "ATmega328-MU" V 6650 2950 50  0000 C CNN
 F 2 "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm" H 7000 3550 50  0001 C CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 7000 3550 50  0001 C CNN
+F 4 "headers/m328_hw.h" H 7000 3550 50  0001 C CNN "header"
 	1    7000 3550
 	1    0    0    -1  
 $EndComp
@@ -322,4 +313,8 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/21298c.pdf" H 3850 5900 50 
 	1    2950 6200
 	1    0    0    -1  
 $EndComp
+Text Label 1800 2950 0    50   ~ 0
+X1
+Text Label 1800 3150 0    50   ~ 0
+X2
 $EndSCHEMATC
