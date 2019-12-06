@@ -92,7 +92,7 @@ F 0 "U6" H 7200 5000 50  0000 C CNN
 F 1 "ATmega328-MU" V 6650 2950 50  0000 C CNN
 F 2 "Package_DFN_QFN:QFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm" H 7000 3550 50  0001 C CIN
 F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 7000 3550 50  0001 C CNN
-F 4 "headers/m328_hw.h" H 7000 3550 50  0001 C CNN "header"
+F 4 "header/m328_hw.h" H 7000 3550 50  0001 C CNN "header"
 	1    7000 3550
 	1    0    0    -1  
 $EndComp
